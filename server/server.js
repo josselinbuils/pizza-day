@@ -26,7 +26,7 @@ Logger.info(`Start PizzaDay in ${env} mode`);
 
 Auth.init(app);
 DB.init();
-Routes.init(app, env);
+Routes.init(app);
 PizzaDayService.schedule();
 app.listen(port);
 

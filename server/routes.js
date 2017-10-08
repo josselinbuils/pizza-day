@@ -20,6 +20,7 @@ module.exports = class Routes {
     const router = express.Router();
     const root = process.cwd();
     const clientPath = root + '/dist';
+    const prefix = process.env.HTTP_PREFIX || '/';
 
     Logger.info('Configure router middlewares');
 
@@ -29,7 +30,7 @@ module.exports = class Routes {
     });
 
     app.use(helmet());
-    app.use(process.env.HTTP_PREFIX || '/', serveStatic(clientPath));
+    app.use(prefix, serveStatic(clientPath));
     app.use(contentLength.validateMax({max: 9999}));
     app.use(bodyParser.json());
 
@@ -50,6 +51,6 @@ module.exports = class Routes {
       res.status(constants.HTTP_INTERNAL_ERROR).json({error: 'An error occurred :('});
     });
 
-    app.use('/', router);
+    app.use(prefix, router);
   }
 };
