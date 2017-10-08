@@ -19,13 +19,13 @@ import { UserService } from '../shared/user.service';
 export class EditAccountComponent implements OnInit {
   @ViewChild(AlertsComponent) alerts: AlertsComponent;
 
+  _deleteAccountSubmitEnabled = true;
   _editPasswordForm: FormGroup;
   _editInfoForm: FormGroup;
   _loading = true;
+  _user: User;
 
   private _params: Params;
-  private _user: User;
-  private _deleteAccountSubmitEnabled = true;
   private _editInfoSubmitEnabled = true;
   private _editPasswordSubmitEnabled = true;
 

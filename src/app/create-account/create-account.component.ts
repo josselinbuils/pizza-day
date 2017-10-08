@@ -19,8 +19,7 @@ export class CreateAccountComponent implements OnInit {
   @ViewChild(AlertsComponent) alerts: AlertsComponent;
 
   _createAccountForm: FormGroup;
-
-  private _submitEnabled = true;
+  _submitEnabled = true;
 
   constructor(private _formBuilder: FormBuilder, private _router: Router, private _userService: UserService) {
   }

@@ -1,8 +1,8 @@
 <div>
   <div dropdown class="btn-group">
-    <button [attr.disabled]="disabled ? true : null" dropdownToggle type="button" class="dropdown-toggle form-control">
-      <span *ngIf="!multi && _selected.length" [innerHTML]="_getSelectedItem().caption"></span>
-      <div *ngIf="multi && _selected.length" class="multi-container">
+    <button [attr.disabled]="disabled" dropdownToggle type="button" class="dropdown-toggle form-control">
+      <span *ngIf="!multi && _selected.length > 0" [innerHTML]="_getSelectedItem().caption"></span>
+      <div *ngIf="multi && _selected.length > 0" class="multi-container">
         <div *ngFor="let item of _selected; let i = index" (click)="_prevent($event)">
           <span [innerHTML]="item.caption"></span>
           <button (click)="_unselect(i, $event)" type="button" class="close">
