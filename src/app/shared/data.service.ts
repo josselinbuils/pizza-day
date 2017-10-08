@@ -20,7 +20,7 @@ export class DataService {
     let error: any;
 
     try {
-      error = res.json().error;
+      error = JSON.parse(res.error).error;
     } catch (e) {
       // Empty
     }
@@ -52,15 +52,15 @@ export class DataService {
 
     return Observable.create((observer: any) => {
 
-      const options: RequestOptions = <RequestOptions> {};
+      const options: any = {};
 
       if (['POST', 'PATCH'].indexOf(method) !== -1) {
+        options.body = data;
+      }
 
-        const headers = new Headers();
-        headers.append('Content-Type', 'application/json');
-
-        options.body = JSON.stringify(data);
-        options.headers = headers;
+      // TODO: remove this
+      if (url.indexOf('http') === -1) {
+        url = 'http://localhost:9000' + url;
       }
 
       this._http.request(method, url, <any> options)
@@ -69,19 +69,14 @@ export class DataService {
         .subscribe((res: any) => {
           Log.debug('DataService->_request: success');
 
-          try {
-            observer.next(res.json());
-          } catch (e) {
-            observer.next(res.text());
-          }
-
+          observer.next(res);
           observer.complete();
 
         }, res => {
 
           if (checkAuthorization && res.status === 401) {
             Log.debug('DataService->_request: user not logged, display login component');
-            this._router.navigate(['Login']);
+            this._router.navigate(['login']);
           }
 
           const error = DataService._getError(res);
@@ -91,9 +86,4 @@ export class DataService {
         });
     });
   }
-}
-
-interface RequestOptions {
-  body?: string;
-  headers?: Headers;
 }

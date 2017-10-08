@@ -68,7 +68,7 @@ export class CreatePizzaDayComponent implements OnInit {
           type: 'success',
           message: 'Pizza day successfully created',
           dismissDelay: constants.DISMISS_DELAY_SUCCESS_MOVE,
-          close: () => this._router.navigate(['/dashboard'])
+          close: () => this._router.navigate(['dashboard'])
         });
 
       }, error => {
@@ -140,7 +140,7 @@ export class CreatePizzaDayComponent implements OnInit {
       this.alerts.add({
         type: 'danger',
         message: error,
-        close: () => this._router.navigate(['/dashboard'])
+        close: () => this._router.navigate(['dashboard'])
       });
 
       this._loading = false;

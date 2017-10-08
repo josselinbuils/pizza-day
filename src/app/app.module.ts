@@ -44,7 +44,6 @@ const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'orderPizza/:pizzaDayId/:orderId', component: OrderPizzaComponent},
   {path: 'pizzerias', component: PizzeriaListComponent},
-  {path: '', pathMatch: 'full', redirectTo: '/dashboard'},
   {path: '**', redirectTo: '/notFound'}
 ];
 
@@ -76,7 +75,7 @@ const appRoutes: Routes = [
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes, {enableTracing: true}),
+    RouterModule.forRoot(appRoutes),
     TabsModule.forRoot(),
     TooltipModule.forRoot()
   ],

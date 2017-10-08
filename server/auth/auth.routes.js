@@ -1,5 +1,3 @@
-'use strict';
-
 const constants = require('../constants');
 const passport = require('passport');
 
@@ -10,6 +8,7 @@ module.exports = class AuthRoutes {
         Logger.info('Initialize authentication routes');
 
         router.get('/logged', (req, res) => {
+          console.log('test', req);
             if (req.user) {
                 res.json({
                     logged: true,

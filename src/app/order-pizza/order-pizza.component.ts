@@ -43,7 +43,7 @@ export class OrderPizzaComponent implements OnInit {
           type: 'success',
           message: 'Pizza successfully ordered',
           dismissDelay: constants.DISMISS_DELAY_SUCCESS_MOVE,
-          close: () => this._router.navigate(['Dashboard'])
+          close: () => this._router.navigate(['dashboard'])
         });
 
       }, error => {
@@ -91,7 +91,7 @@ export class OrderPizzaComponent implements OnInit {
         this.alerts.add({
           type: 'danger',
           message: error,
-          close: () => this._router.navigate(['Dashboard'])
+          close: () => this._router.navigate(['dashboard'])
         });
 
         this._loading = false;

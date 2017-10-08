@@ -31,11 +31,13 @@ export class LoginComponent implements OnInit {
   _login(event: any): void {
     Log.debug('LoginComponent->login()');
 
+    console.log(this._loginForm.value);
+
     this._userService.login(this._loginForm.value).subscribe(() => {
       Log.debug('LoginComponent->login: success');
 
       const target = this._params['target'];
-      target ? this._router.navigateByUrl(decodeURIComponent(target)) : this._router.navigate(['Dashboard']);
+      target ? this._router.navigateByUrl(decodeURIComponent(target)) : this._router.navigate(['dashboard']);
 
     }, (error: any) => {
       Log.debug('LoginComponent->login: error: ' + error.toLowerCase());

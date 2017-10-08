@@ -1,0 +1,24 @@
+:host {
+  display: block;
+  margin-top: 25px;
+}
+
+.bg-faded {
+  background-color: #f7f7f7;
+}
+
+.body {
+  display: flow-root;
+  border-bottom-left-radius: .5rem;
+  border-bottom-right-radius: .5rem;
+  padding: 0 2rem 2rem 2rem;
+}
+
+.logo {
+  margin-right: 0.6rem;
+}
+
+.navbar {
+  border-top-left-radius: .5rem;
+  border-top-right-radius: .5rem;
+}

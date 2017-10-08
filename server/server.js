@@ -14,6 +14,14 @@ const app = express();
 const port = process.env.PORT || config.port || constants.DEFAULT_PORT;
 const env = process.env.NODE_ENV || 'development';
 
+if (env === 'development') {
+  app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    next();
+  });
+}
+
 Logger.info(`Start PizzaDay in ${env} mode`);
 
 Auth.init(app);

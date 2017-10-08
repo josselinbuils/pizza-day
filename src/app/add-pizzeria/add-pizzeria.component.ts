@@ -38,7 +38,7 @@ export class AddPizzeriaComponent implements OnInit {
           type: 'success',
           message: 'Pizzeria successfully added',
           dismissDelay: constants.DISMISS_DELAY_SUCCESS_MOVE,
-          close: () => this._router.navigate(['/editPizzeria', {id: pizzeria._id, showPizzasTab: true}])
+          close: () => this._router.navigate(['editPizzeria', {id: pizzeria._id, showPizzasTab: true}])
         });
 
       }, error => {

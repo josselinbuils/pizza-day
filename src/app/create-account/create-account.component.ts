@@ -53,7 +53,7 @@ export class CreateAccountComponent implements OnInit {
           type: 'success',
           message: 'Successfully logged in',
           dismissDelay: constants.DISMISS_DELAY_SUCCESS_MOVE,
-          close: () => this._router.navigate(['Dashboard'])
+          close: () => this._router.navigate(['dashboard'])
         });
 
       }, error => {

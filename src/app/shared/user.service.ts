@@ -141,7 +141,7 @@ export class UserService {
         Log.debug('UserService->logout: success');
 
         this.userNotLogged();
-        this._router.navigate(['Login']);
+        this._router.navigate(['login']);
 
       }, error => {
         Log.debug('UserService->logout: error: ' + error.toLowerCase());
