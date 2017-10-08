@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { DataService } from './shared/data.service';
 import { Log } from './shared/log.service';
 import { UserService } from './shared/user.service';
+import { PlatformLocation } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +13,13 @@ import { UserService } from './shared/user.service';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private _router: Router, private _userService: UserService) {
+  constructor(_dataService: DataService, private _router: Router, private _userService: UserService,
+              platformLocation: PlatformLocation) {
+
+    console.log((platformLocation as any).location);
+    console.log((platformLocation as any).location.href);
+    console.log((<any> platformLocation).location.origin);
+    _dataService.setPrefix((<any> platformLocation).location.origin);
   }
 
   ngOnInit() {

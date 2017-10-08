@@ -14,6 +14,8 @@ const ERROR_UNKNOWN = 'An error occurred';
 @Injectable()
 export class DataService {
 
+  private prefix = '';
+
   private static _getError(res: any): string {
     Log.debug('DataService->_getError()');
 
@@ -47,6 +49,10 @@ export class DataService {
     return this._request('POST', url, checkAuthorization, data);
   }
 
+  setPrefix(prefix: string): void {
+    this.prefix = prefix;
+  }
+
   private _request(method: string, url: string, checkAuthorization: boolean = true, data?: any): Observable<any> {
     Log.debug('DataService->_request()');
 
@@ -56,6 +62,10 @@ export class DataService {
 
       if (['POST', 'PATCH'].indexOf(method) !== -1) {
         options.body = data;
+      }
+
+      if (url.indexOf('http') === -1) {
+        url = this.prefix + url;
       }
 
       this._http.request(method, url, <any> options)
