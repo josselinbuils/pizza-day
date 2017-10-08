@@ -15,32 +15,32 @@ export class UserPanelComponent {
   _buttons = [{
     name: 'Home',
     icon: 'fa-home',
-    click: () => this._router.navigate(['dashboard']),
+    click: () => this._router.navigate(['/dashboard']),
     hidden: () => !this._isLogged() || this._isRouteActive('/dashboard')
   }, {
     name: 'Pizzerias',
     icon: 'fa-cutlery',
-    click: () => this._router.navigate(['pizzerias']),
+    click: () => this._router.navigate(['/pizzerias']),
     hidden: () => !this._isLogged() || this._isRouteActive('/pizzerias')
   }, {
     name: 'Create account',
     icon: 'fa-user-plus',
-    click: () => this._router.navigate(['createAccount']),
+    click: () => this._router.navigate(['/createAccount']),
     hidden: () => this._isLogged() || this._isRouteActive('/createAccount')
   }, {
     name: 'Edit account',
     icon: 'fa-user',
-    click: () => this._router.navigate(['editAccount', this._userService.getId()]),
+    click: () => this._router.navigate(['/editAccount', this._userService.getId()]),
     hidden: () => !this._isLogged() || this._isRouteActive('/editAccount/' + this._userService.getId())
   }, {
     name: 'About',
     icon: 'fa-info-circle',
-    click: () => this._router.navigate(['about']),
+    click: () => this._router.navigate(['/about']),
     hidden: () => this._isRouteActive('/about')
   }, {
     name: 'Login',
     icon: 'fa-sign-in',
-    click: () => this._router.navigate(['login']),
+    click: () => this._router.navigate(['/login']),
     hidden: () => this._isLogged() || this._isRouteActive('/login')
   }, {
     name: 'Logout',

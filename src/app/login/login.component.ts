@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
       Log.debug('LoginComponent->login: success');
 
       const target = this._params['target'];
-      target ? this._router.navigateByUrl(decodeURIComponent(target)) : this._router.navigate(['dashboard']);
+      target ? this._router.navigateByUrl(decodeURIComponent(target)) : this._router.navigate(['/dashboard']);
 
     }, (error: any) => {
       Log.debug('LoginComponent->login: error: ' + error.toLowerCase());

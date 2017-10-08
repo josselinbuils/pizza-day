@@ -168,7 +168,7 @@ export class EditAccountComponent implements OnInit {
         this.alerts.add({
           type: 'danger',
           message: error,
-          close: () => this._router.navigate(['dashboard'])
+          close: () => this._router.navigate(['/dashboard'])
         });
 
         this._loading = false;

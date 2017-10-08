@@ -71,7 +71,7 @@ export class EditPizzeriaComponent implements OnInit {
           type: 'success',
           message: 'Pizzeria successfully deleted',
           dismissDelay: constants.DISMISS_DELAY_SUCCESS_MOVE,
-          close: () => this._router.navigate(['dashboard'])
+          close: () => this._router.navigate(['/dashboard'])
         });
 
       }, error => {
@@ -195,7 +195,7 @@ export class EditPizzeriaComponent implements OnInit {
         this.alerts.add({
           type: 'danger',
           message: error,
-          close: () => this._router.navigate(['dashboard'])
+          close: () => this._router.navigate(['/dashboard'])
         });
 
         this._loading = false;

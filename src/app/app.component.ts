@@ -29,21 +29,21 @@ export class AppComponent implements OnInit {
       .subscribe((logged: any) => {
         if (logged) {
           Log.debug('PizzaDayAppComponent->ngOnInit: user logged');
-          this._router.navigate(['dashboard']);
+          this._router.navigate(['/dashboard']);
         } else {
           Log.debug('PizzaDayAppComponent->ngOnInit: user not logged, display login component');
 
           const unsecuredTarget = /^\/(about|login)/;
 
           if (target.length > 1) {
-            this._router.navigate(['login', {target: encodeURIComponent(target)}]);
+            this._router.navigate(['/login', {target: encodeURIComponent(target)}]);
           } else if (!unsecuredTarget.test(target)) {
-            this._router.navigate(['login']);
+            this._router.navigate(['/login']);
           }
         }
       }, error => {
         Log.debug('PizzaDayAppComponent->ngOnInit: error: ' + error.toLowerCase());
-        this._router.navigate(['login']);
+        this._router.navigate(['/login']);
       });
   }
 }

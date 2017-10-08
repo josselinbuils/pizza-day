@@ -81,7 +81,7 @@ export class DataService {
 
           if (checkAuthorization && res.status === 401) {
             Log.debug('DataService->_request: user not logged, display login component');
-            this._router.navigate(['login']);
+            this._router.navigate(['/login']);
           }
 
           const error = DataService._getError(res);
