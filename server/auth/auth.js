@@ -22,10 +22,7 @@ module.exports = class Auth {
     app.use(passport.session());
 
     passport.serializeUser((user, done) => done(null, user._id));
-    passport.deserializeUser((id, done) => {
-      console.log('2', id);
-      User.findById(id, (error, user) => done(error, user))
-    });
+    passport.deserializeUser((id, done) => User.findById(id, (error, user) => done(error, user)));
 
     passport.use(new LocalStrategy({usernameField: 'email'}, (email, password, done) => {
       User.findOne({email: email}, (error, user) => {

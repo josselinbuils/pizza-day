@@ -31,8 +31,6 @@ export class LoginComponent implements OnInit {
   _login(event: any): void {
     Log.debug('LoginComponent->login()');
 
-    console.log(this._loginForm.value);
-
     this._userService.login(this._loginForm.value).subscribe(() => {
       Log.debug('LoginComponent->login: success');
 

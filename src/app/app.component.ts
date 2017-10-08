@@ -13,13 +13,8 @@ import { PlatformLocation } from '@angular/common';
 })
 export class AppComponent implements OnInit {
 
-  constructor(_dataService: DataService, private _router: Router, private _userService: UserService,
-              platformLocation: PlatformLocation) {
-
-    console.log((platformLocation as any).location);
-    console.log((platformLocation as any).location.href);
-    console.log((<any> platformLocation).location.origin);
-    _dataService.setPrefix((<any> platformLocation).location.origin);
+  constructor(_dataService: DataService, private _router: Router, private _userService: UserService) {
+    _dataService.setPrefix((<any> this._router).location._baseHref);
   }
 
   ngOnInit() {
