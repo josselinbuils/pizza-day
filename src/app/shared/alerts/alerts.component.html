@@ -1,0 +1,7 @@
+<div *ngFor="let alert of _alerts; let i = index" [ngClass]="'alert-' + alert.type" [class.alert-dismissible]="alert.dismissible" class="alert" role="alert">
+    <button *ngIf="alert.dismissible" (click)="_close(i)" type="button" class="close">
+        <span aria-hidden="true">&times;</span>
+        <span class="sr-only">Close</span>
+    </button>
+    <i [ngClass]="_icons[alert.type]" class="fa"></i><span [innerHTML]="alert.message"></span>
+</div>

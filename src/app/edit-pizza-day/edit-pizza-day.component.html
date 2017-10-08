@@ -1,0 +1,93 @@
+<h2><img src="/assets/pizza-day.png" aria-hidden="true"/>Edit a pizza day</h2>
+
+<app-loading [display]="_loading"></app-loading>
+
+<tabset [hidden]="!_pizzaDay">
+
+  <tab [heading]="'Info'">
+    <form *ngIf="_editInfoForm" [formGroup]="_editInfoForm" (submit)="_editInfo($event)">
+
+      <fieldset class="form-group">
+        <label>Day</label>
+        <app-selector [items]="_days" [selected]="_pizzaDay.day" formControlName="day"></app-selector>
+      </fieldset>
+
+      <fieldset class="form-group">
+        <label>Pizzeria</label>
+        <app-selector [items]="_pizzerias" formControlName="pizzeria"></app-selector>
+      </fieldset>
+
+      <fieldset class="form-group">
+        <label>Owner</label>
+        <app-selector [items]="_users" [selected]="_getOwner()" formControlName="owner"></app-selector>
+      </fieldset>
+
+      <fieldset class="form-group">
+        <label>Participants</label>
+        <app-selector [items]="_users" [multi]="true" [selected]="_getParticipants()"
+                     formControlName="participants"></app-selector>
+      </fieldset>
+
+      <button type="submit" [disabled]="!_editInfoForm.valid || !_editInfoSubmitEnabled"
+              class="btn btn-lg btn-primary btn-block">Save
+      </button>
+    </form>
+  </tab>
+
+  <tab [heading]="'Times'">
+    <form *ngIf="_editTimesForm" [formGroup]="_editTimesForm" (submit)="_editTimes($event)">
+
+      <fieldset class="form-group">
+        <label for="reminderTime">
+          Reminder time
+          <i [tooltip]="_constants.HELP_REMINDER_TIME" [tooltipAnimation]="false"
+             class="fa fa-question-circle label-help"></i>
+        </label>
+        <input formControlName="reminderTime" id="reminderTime" type="time" class="form-control"
+               step="60"/>
+      </fieldset>
+
+      <fieldset class="form-group">
+        <label for="orderTime">
+          Order time
+          <i [tooltip]="_constants.HELP_ORDER_TIME" [tooltipAnimation]="false"
+             class="fa fa-question-circle label-help"></i>
+        </label>
+        <input formControlName="orderTime" id="orderTime" type="time" class="form-control"
+               step="60"/>
+      </fieldset>
+
+      <fieldset class="form-group">
+        <label for="purchaseTime">
+          Purchase time
+          <i [tooltip]="_constants.HELP_PURCHASE_TIME" [tooltipAnimation]="false"
+             class="fa fa-question-circle label-help"></i>
+        </label>
+        <input formControlName="purchaseTime" id="purchaseTime" type="time" class="form-control"
+               step="60"/>
+      </fieldset>
+
+      <fieldset class="form-group">
+        <label for="mealTime">
+          Meal time
+          <i [tooltip]="_constants.HELP_MEAL_TIME" [tooltipAnimation]="false"
+             class="fa fa-question-circle label-help"></i>
+        </label>
+        <input formControlName="mealTime" id="mealTime" type="time" class="form-control"
+               step="60"/>
+      </fieldset>
+
+      <button type="submit" [disabled]="!_editTimesForm.valid || !_editTimesSubmitEnabled"
+              class="btn btn-lg btn-primary btn-block">Save
+      </button>
+    </form>
+  </tab>
+
+  <tab [heading]="'Delete'">
+    <button [disabled]="!_deletePizzaDaySubmitEnabled" (click)="_deletePizzaDay()"
+            class="btn btn-lg btn-danger btn-block">Delete pizza day
+    </button>
+  </tab>
+</tabset>
+
+<app-alerts></app-alerts>

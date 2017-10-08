@@ -1,0 +1,84 @@
+<h3>
+  <img src="/assets/pizza-day.png" aria-hidden="true"/>Pizza days
+  <button *ngIf="_isAdmin()" [routerLink]="['CreatePizzaDay']" class="btn btn-sm btn-primary pull-right">
+    <i class="fa fa-plus" aria-hidden="true"></i>
+    <span class="sr-only">Create a pizza day</span>
+  </button>
+</h3>
+
+<app-loading [display]="_loading"></app-loading>
+
+<table *ngFor="let pizzaDay of _pizzaDays" class="table">
+  <thead class="bg-primary">
+  <tr>
+    <th>
+      <span [innerHTML]="_days[pizzaDay.day]"></span>
+      <a *ngIf="_canEdit(pizzaDay)" [routerLink]="['EditPizzaDay', {id: pizzaDay._id}]" class="pull-right">
+        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        <span class="sr-only">Edit the pizza day</span>
+      </a>
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      <div class="col-xs-8 col-xs-offset-2 pizzeria">
+        <div class="col-xs-3 pizzeria-icon">
+          <i class="fa fa-cutlery" aria-hidden="true"></i>
+        </div>
+        <div class="col-xs-9 pizzeria-info">
+          <div>
+            <span [innerHTML]="pizzaDay.pizzeria.name"></span>
+          </div>
+          <div>
+            <i class="fa fa-phone" aria-hidden="true"></i>
+            <span [innerHTML]="_formatPhone(pizzaDay.pizzeria.phone)"></span>
+          </div>
+          <div>
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
+            <span [innerHTML]="pizzaDay.pizzeria.address"></span>
+          </div>
+        </div>
+      </div>
+      <ol class="col-xs-12 timeline">
+        <li class="timeline__step" [class.done]="isStepPassed(pizzaDay.day, pizzaDay.reminderTime)">
+          <span class="timeline__step-title" [innerHTML]="pizzaDay.reminderTime"></span>
+          <span class="timeline__step-marker">
+                        <i class="fa fa-bell" aria-hidden="true"></i>
+                    </span>
+        </li>
+        <li class="timeline__step" [class.done]="isStepPassed(pizzaDay.day, pizzaDay.orderTime)">
+          <span class="timeline__step-title" [innerHTML]="pizzaDay.orderTime"></span>
+          <span class="timeline__step-marker">
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                    </span>
+        </li>
+        <li class="timeline__step" [class.done]="isStepPassed(pizzaDay.day, pizzaDay.purchaseTime)">
+          <span class="timeline__step-title" [innerHTML]="pizzaDay.purchaseTime"></span>
+          <span class="timeline__step-marker">
+                        <i class="fa fa-car" aria-hidden="true"></i>
+                    </span>
+        </li>
+        <li class="timeline__step" [class.done]="isStepPassed(pizzaDay.day, pizzaDay.mealTime)">
+          <span class="timeline__step-title" [innerHTML]="pizzaDay.mealTime"></span>
+          <span class="timeline__step-marker">
+                        <i class="fa fa-cutlery" aria-hidden="true"></i>
+                    </span>
+        </li>
+      </ol>
+      <div class="col-xs-10 col-xs-offset-1 participants">
+        <div class="col-xs-3 participants-icon">
+          <i class="fa fa-users" aria-hidden="true"></i>
+        </div>
+        <div class="col-xs-9 participants-list">
+                    <span *ngFor="let user of pizzaDay.participants | sortBy: 'firstName'; let l = last"
+                          [innerHTML]="_formatUser(user, pizzaDay.owner, l)"></span>
+        </div>
+      </div>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<app-alerts></app-alerts>

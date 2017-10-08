@@ -1,0 +1,57 @@
+<h2><i class="fa fa-user"></i>Edit an account</h2>
+
+<app-loading [display]="_loading"></app-loading>
+
+<tabset [hidden]="!_user">
+
+  <tab [heading]="'Info'">
+    <form *ngIf="_editInfoForm" [formGroup]="_editInfoForm" (submit)="_editInfo($event)">
+
+      <fieldset class="form-group">
+        <label>Email</label>
+        <input type="email" formControlName="email" class="form-control text-lowercase" readonly>
+      </fieldset>
+
+      <fieldset class="form-group">
+        <label for="firstName">First name</label>
+        <input type="text" formControlName="firstName" class="form-control text-capitalize" id="firstName">
+      </fieldset>
+
+      <fieldset class="form-group">
+        <label for="lastName">Last name</label>
+        <input type="text" formControlName="lastName" class="form-control text-uppercase" id="lastName">
+      </fieldset>
+
+      <button type="submit" [disabled]="!_editInfoForm.valid || !_editInfoSubmitEnabled"
+              class="btn btn-lg btn-primary btn-block">Save
+      </button>
+    </form>
+  </tab>
+
+  <tab [heading]="'Password'">
+    <form *ngIf="_editPasswordForm" [formGroup]="_editPasswordForm" (submit)="_editPassword($event)">
+
+      <fieldset class="form-group">
+        <label for="password">Password</label>
+        <input type="password" formControlName="password" class="form-control" id="password">
+      </fieldset>
+
+      <fieldset class="form-group">
+        <label for="confirmPassword">Confirm password</label>
+        <input type="password" formControlName="confirmPassword" class="form-control" id="confirmPassword">
+      </fieldset>
+
+      <button type="submit" [disabled]="!_editPasswordForm.valid || !_editPasswordSubmitEnabled"
+              class="btn btn-lg btn-primary btn-block">Save
+      </button>
+    </form>
+  </tab>
+
+  <tab [heading]="'Delete'">
+    <button [disabled]="!_deleteAccountSubmitEnabled" (click)="_deleteAccount()"
+            class="btn btn-lg btn-danger btn-block">Delete account
+    </button>
+  </tab>
+</tabset>
+
+<app-alerts></app-alerts>

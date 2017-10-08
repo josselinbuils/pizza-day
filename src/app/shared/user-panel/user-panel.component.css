@@ -1,0 +1,15 @@
+.user-panel {
+    float: right;
+    height: 2.5rem;
+    line-height: 2.5rem;
+}
+
+.user-panel .btn {
+    margin-top: -.1875rem;
+    margin-left: .3125rem;
+    font-size: 1.125rem;
+}
+
+.user-panel span {
+    margin-right: .3125rem;
+}

@@ -1,0 +1,7 @@
+<div class="user-panel">
+    <span [hidden]="!_isLogged()" [innerHTML]="_getUserFullName()"></span>
+    <button *ngFor="let button of _buttons" [hidden]="button.hidden()" (click)="button.click()"
+            [tooltip]="button.name" [tooltipAnimation]="false" class="btn btn-sm btn-primary">
+        <i [ngClass]="button.icon" class="fa"></i>
+    </button>
+</div>

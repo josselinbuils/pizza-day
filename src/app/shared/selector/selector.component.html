@@ -1,0 +1,22 @@
+<div>
+  <div dropdown class="btn-group">
+    <button [attr.disabled]="disabled ? true : null" dropdownToggle type="button" class="dropdown-toggle form-control">
+      <span *ngIf="!multi && _selected.length" [innerHTML]="_getSelectedItem().caption"></span>
+      <div *ngIf="multi && _selected.length" class="multi-container">
+        <div *ngFor="let item of _selected; let i = index" (click)="_prevent($event)">
+          <span [innerHTML]="item.caption"></span>
+          <button (click)="_unselect(i, $event)" type="button" class="close">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Remove</span>
+          </button>
+        </div>
+      </div>
+      <span *ngIf="!_selected.length">&nbsp;</span>
+    </button>
+    <div class="dropdown-menu">
+      <a *ngFor="let item of items" [hidden]="_isSelected(item)" [innerHTML]="item.caption || ''"
+         (click)="_select(item, $event)" href="" class="dropdown-item"></a>
+      <span *ngIf="!_isThereItem() || items.length === _selected.length">No item</span>
+    </div>
+  </div>
+</div>

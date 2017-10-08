@@ -1,0 +1,35 @@
+<h2><i class="fa fa-user"></i>Create an account</h2>
+
+<form [formGroup]="_createAccountForm" (submit)="_createAccount($event)">
+
+  <fieldset class="form-group">
+    <label for="email">Email</label>
+    <input type="email" formControlName="email" class="form-control text-lowercase" id="email">
+  </fieldset>
+
+  <fieldset class="form-group">
+    <label for="firstName">First name</label>
+    <input type="text" formControlName="firstName" class="form-control text-capitalize" id="firstName">
+  </fieldset>
+
+  <fieldset class="form-group">
+    <label for="lastName">Last name</label>
+    <input type="text" formControlName="lastName" class="form-control text-uppercase" id="lastName">
+  </fieldset>
+
+  <fieldset class="form-group">
+    <label for="password">Password</label>
+    <input type="password" formControlName="password" class="form-control" id="password">
+  </fieldset>
+
+  <fieldset class="form-group">
+    <label for="confirmPassword">Confirm password</label>
+    <input type="password" formControlName="confirmPassword" class="form-control" id="confirmPassword">
+  </fieldset>
+
+  <button type="submit" [disabled]="!_createAccountForm.valid || !_submitEnabled"
+          class="btn btn-lg btn-primary btn-block">Create
+  </button>
+
+  <app-alerts></app-alerts>
+</form>

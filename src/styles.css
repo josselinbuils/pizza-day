@@ -1,1 +1,181 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~font-awesome/css/font-awesome.css';
+
+*:focus {
+  outline: none !important;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+h2 > .fa, h3 > .fa {
+  color: #0275d8;
+}
+
+h2 > .fa, h2 > img {
+  margin-right: 0.7rem;
+}
+
+h2 > img {
+  height: 2.2rem;
+  vertical-align: top;
+}
+
+h3 {
+  margin-bottom: 1.8rem;
+  margin-top: 2rem;
+}
+
+h3 > .fa, h3 > img {
+  margin-right: 0.6rem;
+  vertical-align: top;
+}
+
+h3 > .fa {
+  font-size: 1.6rem;
+  margin-top: 0.2rem;
+}
+
+h3 > img {
+  height: 1.8rem;
+}
+
+input[type=time].form-control {
+  line-height: 1.5;
+}
+
+selector.ng-invalid:not([readonly]) .dropdown-toggle::after {
+  color: red;
+}
+
+selector.ng-valid:not([readonly]) .dropdown-toggle::after {
+  color: green;
+}
+
+tabset ul.nav {
+  max-width: inherit;
+  margin: 0 auto 1.55rem auto;
+}
+
+.alert {
+  text-align: left;
+}
+
+.btn-block + .btn-block {
+  margin-top: .7rem;
+}
+
+.btn-primary:focus:not(:hover) {
+  background-color: #0275d8;
+  border-color: transparent;
+}
+
+.form-control {
+  background-repeat: no-repeat;
+  background-position: center right .5625rem;
+  background-size: 1.4625rem 1.4625rem;
+}
+
+.form-control.ng-invalid:not([readonly]) {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MTIgNzkyIj48cGF0aCBmaWxsPSIjZDk1MzRmIiBkPSJNNDQ3IDU0NC40Yy0xNC40IDE0LjQtMzcuNiAxNC40LTUyIDBsLTg5LTkyLjctODkgOTIuN2MtMTQuNSAxNC40LTM3LjcgMTQuNC01MiAwLTE0LjQtMTQuNC0xNC40LTM3LjYgMC01Mmw5Mi40LTk2LjMtOTIuNC05Ni4zYy0xNC40LTE0LjQtMTQuNC0zNy42IDAtNTJzMzcuNi0xNC4zIDUyIDBsODkgOTIuOCA4OS4yLTkyLjdjMTQuNC0xNC40IDM3LjYtMTQuNCA1MiAwIDE0LjMgMTQuNCAxNC4zIDM3LjYgMCA1MkwzNTQuNiAzOTZsOTIuNCA5Ni40YzE0LjQgMTQuNCAxNC40IDM3LjYgMCA1MnoiLz48L3N2Zz4=);
+}
+
+.form-control.ng-valid:not([readonly]) {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MTIgNzkyIj48cGF0aCBmaWxsPSIjNWNiODVjIiBkPSJNMjMzLjggNjEwYy0xMy4zIDAtMjYtNi0zNC0xNi44TDkwLjUgNDQ4LjhDNzYuMyA0MzAgODAgNDAzLjMgOTguOCAzODljMTguOC0xNC4yIDQ1LjUtMTAuNCA1OS44IDguNGw3MiA5NUw0NTEuMyAyNDJjMTIuNS0yMCAzOC44LTI2LjIgNTguOC0xMy43IDIwIDEyLjQgMjYgMzguNyAxMy43IDU4LjhMMjcwIDU5MGMtNy40IDEyLTIwLjIgMTkuNC0zNC4zIDIwaC0yeiIvPjwvc3ZnPg==);
+}
+
+.form-control.ng-valid[type="time"]:focus, .form-control.ng-valid[type="time"]:hover, .form-control.ng-invalid[type="time"]:focus, .form-control.ng-invalid[type="time"]:hover,
+.form-control.ng-valid[type="number"]:focus, .form-control.ng-valid[type="number"]:hover, .form-control.ng-invalid[type="number"]:focus, .form-control.ng-invalid[type="number"]:hover {
+  background-image: none;
+}
+
+.label-help {
+  color: #0275d8;
+  margin-left: 0.2rem;
+}
+
+.loading {
+  color: #0275d8;
+  margin: .3rem .6rem;
+}
+
+.nav-tabs .nav-item.open .nav-link, .nav-tabs .nav-item.open .nav-link:focus, .nav-tabs .nav-item.open .nav-link:hover, .nav-tabs .nav-link.active, .nav-tabs .nav-link.active:focus, .nav-tabs .nav-link.active:hover {
+  color: white;
+  background-color: #0275d8;
+  border-color: #0275d8 #0275d8 transparent;
+}
+
+.nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
+  border-color: transparent transparent #ddd;
+}
+
+.table {
+  border-collapse: separate;
+  border-radius: .25rem;
+  margin-bottom: 0;
+}
+
+.table .actions {
+  text-align: right;
+  max-width: 3rem;
+  padding: 0;
+}
+
+.table .actions > a {
+  display: inline-block;
+  margin: 0.75rem;
+}
+
+.table tbody td {
+  background-color: #d9edf7;
+}
+
+.table tbody td:first-child {
+  border-left: 1px solid #bcdff1;
+}
+
+.table tbody td:last-child {
+  border-right: 1px solid #bcdff1;
+}
+
+.table tbody tr:first-child td {
+  border-top: 1px solid #bcdff1;
+}
+
+.table tbody tr:last-child td {
+  border-bottom: 1px solid #bcdff1;
+}
+
+.table tbody tr:last-child td:first-child {
+  border-bottom-left-radius: .25rem;
+}
+
+.table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: .25rem;
+}
+
+.table thead th {
+  border: 0;
+}
+
+.table thead th:first-child {
+  border-top-left-radius: .25rem;
+}
+
+.table thead th:last-child {
+  border-top-right-radius: .25rem;
+}
+
+.ui-select-bootstrap .ui-select-choices-row.active > a {
+  background-color: #0275d8;
+}
+
+.ui-select-bootstrap .ui-select-choices-row > a {
+  padding: 0.5rem 1.25rem;
+}
+
+.tooltip-inner {
+  margin-bottom: 0.3rem;
+}

@@ -1,0 +1,35 @@
+<h3>
+  <i class="fa fa-cutlery" aria-hidden="true"></i>Pizzerias
+  <button *ngIf="_canCreate()" [routerLink]="['/addPizzeria']" class="btn btn-sm btn-primary pull-right">
+    <i class="fa fa-plus" aria-hidden="true"></i>
+    <span class="sr-only">Add a pizzeria</span>
+  </button>
+</h3>
+
+<app-loading [display]="_loading"></app-loading>
+
+<table *ngIf="_isTherePizzeria()" class="table table-hover">
+  <thead class="bg-primary">
+  <tr>
+    <th>Name</th>
+    <th>Phone</th>
+    <th>Address</th>
+    <th class="actions"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let pizzeria of _pizzerias">
+    <td [innerHTML]="pizzeria.name" scope="row" class="text-nowrap"></td>
+    <td [innerHTML]="_formatPhone(pizzeria.phone)" class="text-nowrap"></td>
+    <td [innerHTML]="pizzeria.address"></td>
+    <td class="actions">
+      <a *ngIf="_canEdit()" [routerLink]="['EditPizzeria', {id: pizzeria._id}]">
+        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        <span class="sr-only">Edit the pizzeria</span>
+      </a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<app-alerts></app-alerts>

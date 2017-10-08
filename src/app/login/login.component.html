@@ -1,0 +1,9 @@
+<form [formGroup]="_loginForm" (submit)="_login($event)">
+  <i class="fa fa-user"></i>
+  <input type="email" formControlName="email" class="form-control" placeholder="Email" autofocus>
+  <input type="password" formControlName="password" class="form-control" placeholder="Password">
+  <button [disabled]="!_loginForm.valid || !_submitEnabled" class="btn btn-lg btn-primary btn-block" type="submit">
+    Sign in
+  </button>
+  <app-alerts></app-alerts>
+</form>

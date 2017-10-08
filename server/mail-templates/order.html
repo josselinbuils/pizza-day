@@ -1,0 +1,87 @@
+<style media="all" type="text/css">
+    .table {
+        border-collapse: separate;
+    }
+
+    .table td, .table th {
+        padding: 12px;
+        line-height: 1.5;
+        vertical-align: top;
+        text-align: left;
+    }
+
+    .table td {
+        background-color: rgba(217, 237, 247, .5);
+    }
+
+    .table td:first-child {
+        border-left: 1px solid #bcdff1;
+    }
+
+    .table td:last-child {
+        border-right: 1px solid #bcdff1;
+    }
+
+    .table th:first-child {
+        border-top-left-radius: 4px;
+    }
+
+    .table th:last-child {
+        border-top-right-radius: 4px;
+    }
+
+    .table tr:last-child td {
+        border-bottom: 1px solid #bcdff1;
+    }
+
+    .table tr:last-child td:first-child {
+        border-bottom-left-radius: 4px;
+    }
+
+    .table tr:last-child td:last-child {
+        border-bottom-right-radius: 4px;
+    }
+</style>
+
+<table class="table table-hover" cellspacing="0" cellpadding="0" border="0" width="100%">
+    <tr class="bg-primary">
+        <th width="20px"></th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+    </tr>
+    {{#pizzeria.pizzas}}
+    <tr>
+        <td>
+            <label for="{{_id}}">
+                <input type="radio" name="pizza" value="{{_id}}" id="{{_id}}">
+            </label>
+        </td>
+        <td>
+            <label for="{{_id}}">{{name}}</label>
+        </td>
+        <td>
+            <label for="{{_id}}">{{description}}</label>
+        </td>
+        <td>
+            <label for="{{_id}}">{{price}}€</label>
+        </td>
+    </tr>
+    {{/pizzeria.pizzas}}
+    <tr>
+        <td>
+            <label for="{{_id}}">
+                <input type="radio" name="pizza" value="none" id="none" checked="true">
+            </label>
+        </td>
+        <td>
+            <label for="none">None</label>
+        </td>
+        <td>
+            <label for="none">&nbsp;</label>
+        </td>
+        <td>
+            <label for="none">&nbsp;</label>
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,73 @@
+<h3><i class="fa fa-user" aria-hidden="true"></i>Developer</h3>
+<app-loading [display]="_loadingProfile"></app-loading>
+
+<div *ngIf="_profile" class="custom-card">
+  <img [src]="_profile.avatar_url" alt="">
+  <div>
+    <h4 class="card-title">Josselin BUILS
+      <a href="https://www.linkedin.com/in/josselin-buils-60733858" target="_blank">
+        <i class="fa fa-linkedin-square"></i>
+      </a>
+    </h4>
+    <div class="card-column">
+      <p class="card-text">
+        <i class="fa fa-users" aria-hidden="true"></i><span [innerHTML]="_profile.company"></span>
+      </p>
+      <p class="card-text">
+        <i class="fa fa-map-marker" aria-hidden="true"></i><span [innerHTML]="_profile.location"></span>
+      </p>
+    </div>
+    <div class="card-column">
+      <p class="card-text">
+        <i class="fa fa-github" aria-hidden="true"></i><a [href]="_profile.html_url"
+                                                          [innerHTML]="_profile.login" target="_blank"></a>
+        <span class="card-details">({{_profile.public_repos}} repos, {{_profile.followers}} follower<span
+          *ngIf="_profile.followers > 1">s</span>)</span>
+      </p>
+      <p class="card-text">
+        <i class="fa fa-envelope" aria-hidden="true"></i><a [href]="'mailto:' + _profile.email"
+                                                            [innerHTML]="_profile.email"></a>
+      </p>
+    </div>
+  </div>
+</div>
+
+<h3><i class="fa fa-puzzle-piece" aria-hidden="true"></i>Dependencies</h3>
+<div class="libraries">
+  <a href="https://angular.io" target="_blank">
+    <img src="/assets/angular.png" alt=""/>
+  </a>
+  <a href="https://www.typescriptlang.org" target="_blank">
+    <img src="/assets/typescript.png" alt=""/>
+  </a>
+  <a href="http://v4-alpha.getbootstrap.com" target="_blank">
+    <img src="/assets/bootstrap.png" alt=""/>
+  </a>
+  <a href="https://nodejs.org/en" target="_blank">
+    <img src="/assets/nodejs.png" alt=""/>
+  </a>
+  <a href="http://expressjs.com" target="_blank">
+    <img src="/assets/express.png" alt="" class="express"/>
+  </a>
+</div>
+<div class="libraries">
+  <a href="http://passportjs.org" target="_blank">
+    <img src="/assets/passport.png" alt="" class="passport"/>
+  </a>
+  <a href="https://www.mongodb.com" target="_blank">
+    <img src="/assets/mongodb.png" alt="" class="mongodb"/>
+  </a>
+  <a href="https://www.docker.com" target="_blank">
+    <img src="/assets/docker.png" alt="" class="docker"/>
+  </a>
+</div>
+
+<app-loading [display]="_loadingDependencies"></app-loading>
+<div *ngIf="_dependencies" class="dependencies">
+  <div *ngFor="let dependency of _dependencies; let i = index">
+    <a [href]="'https://www.npmjs.com/package/' + dependency" [innerHTML]="dependency" target="_blank"></a><span
+    *ngIf="i < (_dependencies.length - 1)">, </span>
+  </div>
+</div>
+
+<app-alerts></app-alerts>

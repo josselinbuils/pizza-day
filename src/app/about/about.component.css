@@ -1,0 +1,119 @@
+app-alerts {
+  margin-top: 1.875rem;
+}
+
+h3 {
+  margin-bottom: 1rem;
+}
+
+.custom-card {
+  display: inline-flex;
+  margin-top: .5rem;
+}
+
+.custom-card > img {
+  height: 5.8rem;
+  border-radius: .25rem;
+}
+
+.custom-card > div {
+  padding: 0 0 0 1.25rem;
+  min-width: 16rem;
+}
+
+
+.custom-card h4 {
+  margin-bottom: .75rem;
+}
+
+.custom-card h4 a {
+  color: #0275d8;
+  font-size: 1.3rem;
+  vertical-align: text-top;
+  line-height: 1.7rem;
+}
+
+.custom-card .card-column {
+  display: inline-block;
+}
+
+.custom-card .card-column + .card-column {
+  margin-left: 1.5rem;
+}
+
+.custom-card .card-text {
+  margin-bottom: .5rem;
+}
+
+.custom-card .card-text:last-child {
+  margin-bottom: 0;
+}
+
+.custom-card .card-text a {
+  color: inherit;
+}
+
+.custom-card .card-text > i {
+  margin-right: .5rem;
+  width: 1rem;
+  text-align: center;
+  color: #0275d8;
+}
+
+.custom-card .card-text .card-details {
+  color: grey;
+  font-size: .8rem;
+  vertical-align: text-top;
+}
+
+.dependencies {
+  text-align: justify;
+}
+
+.dependencies a {
+  color: inherit;
+}
+
+.dependencies div {
+  display: inline;
+}
+
+.libraries {
+  text-align: center;
+  transform-style: preserve-3d;
+  height: 4rem;
+  margin: 1.5rem -1rem;
+}
+
+.libraries a {
+  margin: 0 1.25rem;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  vertical-align: top;
+  display: inline-block;
+}
+
+.libraries img:first-child {
+  margin-left: 0;
+}
+
+.libraries img:last-child {
+  margin-right: 0;
+}
+
+.libraries .docker {
+  margin-top: -.1875rem;
+}
+
+.libraries .express {
+  margin-top: .625rem;
+}
+
+.libraries .mongodb {
+  margin-top: -.3125rem;
+}
+
+.libraries .passport {
+  margin-top: .3125rem;
+}

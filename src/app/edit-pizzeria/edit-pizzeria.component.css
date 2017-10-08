@@ -1,0 +1,56 @@
+.pizza-form {
+  max-width: none;
+}
+
+.pizza-form .form-control:not(:focus) {
+  border-color: transparent;
+  color: inherit;
+  background-color: transparent;
+  padding-left: 0.35rem;
+}
+
+.pizza-form .form-control.ng-untouched:not(:focus) {
+  background-image: none;
+}
+
+.table th:first-child {
+  width: 20%;
+}
+
+.table th:nth-child(3) {
+  width: 15%;
+}
+
+.table th:last-child {
+  width: 3rem;
+}
+
+.table td {
+  padding: .3rem;
+}
+
+.table td:last-child {
+  text-align: right;
+  line-height: 2.4rem;
+  padding-right: 0.75rem;
+}
+
+app-alerts {
+  max-width: 22rem;
+  margin: 1.25rem auto 0 auto;
+}
+
+button {
+  font-size: 1.125rem;
+  max-width: 22rem;
+  margin: 1.25rem auto 0 auto;
+}
+
+form {
+  max-width: 22rem;
+  margin: 1.55rem auto 0.625rem auto;
+}
+
+tabset {
+  max-width: 22rem;
+}

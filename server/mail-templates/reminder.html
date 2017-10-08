@@ -1,0 +1,25 @@
+<h3 style="margin-top: 0; margin-bottom: 30px; font-size: 28px; font-family: inherit; font-weight: 500; line-height: 1.1; color: inherit;">
+    <img src="cid:pizza-day.png"
+         style="height: 29px; margin-right: 10px; vertical-align: top; display: inline; border: 0;">
+    Hey {{user.firstName}}, today is pizza day!
+</h3>
+
+<h4 style="font-size: 18px; margin: 25px 0 0 0;">
+    You can choose your pizza by clicking on the following button:
+</h4>
+
+<a href="http://pizzaday.party/orderPizza/{{pizzaDay._id}}/{{orderId}}" target="_blank"
+   style="margin-top: 20px; display: block; font-size: 18px; font-weight: bold; line-height: 1.33; text-align: center; white-space: nowrap; vertical-align: middle; cursor: pointer; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; border-radius: 4px; color: #fff; background-color: #0275d8; text-decoration: none; padding: 12px 20px; border: 1px solid #0275d8;">
+    Choose my pizza
+</a>
+
+<h4 style="font-size: 18px; margin: 25px 0 0 0;">
+    The order will be done at {{pizzaDay.orderTime}}, the purchase is at {{pizzaDay.purchaseTime}} and the meal at
+    {{pizzaDay.mealTime}}.
+</h4>
+
+<h4 style="font-size: 18px; margin: 25px 0 0 0;">
+    For logistic purposes, please answer before {{pizzaDay.orderTime}} even if you don't want to eat a pizza today
+    <img src="cid:smiley.png"
+         style="display: inline; vertical-align: middle; border: 0;">
+</h4>

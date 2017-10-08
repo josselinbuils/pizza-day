@@ -1,0 +1,65 @@
+<h2><i class="fa fa-cart-plus" aria-hidden="true"></i>Order a pizza</h2>
+
+<app-loading [display]="_loading"></app-loading>
+
+<form *ngIf="_pizzaDay" [formGroup]="_orderPizzaForm" (submit)="_orderPizza($event)">
+
+  <table class="table table-hover">
+    <thead class="bg-primary">
+    <tr>
+      <th>&nbsp;</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let pizza of _pizzaDay.pizzeria.pizzas | sortBy: 'price'">
+      <td scope="row">
+        <label [attr.for]="pizza._id">
+          <input [attr.value]="pizza.name" [attr.id]="pizza._id" (change)="_updatePizza($event)" name="pizza"
+                 type="radio">
+        </label>
+      </td>
+      <td>
+        <label [attr.for]="pizza._id" [innerHTML]="pizza.name" class="text-nowrap"></label>
+      </td>
+      <td>
+        <label [attr.for]="pizza._id" [innerHTML]="pizza.description"></label>
+      </td>
+      <td>
+        <label [attr.for]="pizza._id" [innerHTML]="pizza.price + '€'" class="text-nowrap"></label>
+      </td>
+    </tr>
+    <tr>
+      <td scope="row">
+        <label for="none">
+          <input value="none" id="none" (change)="_updatePizza($event)" name="pizza" type="radio" checked>
+        </label>
+      </td>
+      <td>
+        <label for="none" class="text-nowrap">None</label>
+      </td>
+      <td>
+        <label for="none">&nbsp;</label>
+      </td>
+      <td>
+        <label for="none">&nbsp;</label>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <fieldset class="form-group">
+    <label for="notes">Notes</label>
+    <textarea formControlName="notes" type="text" class="form-control" id="notes"></textarea>
+  </fieldset>
+
+  <button type="submit" [disabled]="!_orderPizzaForm.valid || !_submitEnabled"
+          class="btn btn-lg btn-primary btn-block">
+    Order
+  </button>
+
+</form>
+
+<app-alerts></app-alerts>

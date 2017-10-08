@@ -1,0 +1,13 @@
+app-alerts {
+  margin-top: 1.25rem;
+}
+
+form {
+  max-width: 22rem;
+  margin: 0 auto 0.625rem auto;
+}
+
+form button {
+  font-size: 1.125rem;
+  margin-top: 1.25rem;
+}

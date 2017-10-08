@@ -1,0 +1,28 @@
+<h2><i class="fa fa-cutlery" aria-hidden="true"></i>Add a pizzeria</h2>
+
+<form [formGroup]="_addPizzeriaForm" (submit)="_addPizzeria($event)">
+
+  <fieldset class="form-group">
+    <label for="name">Name</label>
+    <input type="text" formControlName="name" class="form-control text-capitalize" id="name">
+  </fieldset>
+
+  <fieldset class="form-group">
+    <label for="phone">
+      Phone
+      <i [tooltip]="_constants.HELP_PHONE" [tooltipAnimation]="false" class="fa fa-question-circle label-help"></i>
+    </label>
+    <input type="tel" formControlName="phone" class="form-control" id="phone">
+  </fieldset>
+
+  <fieldset class="form-group">
+    <label for="address">Address</label>
+    <textarea type="text" formControlName="address" class="form-control" id="address"></textarea>
+  </fieldset>
+
+  <button type="submit" [disabled]="!_addPizzeriaForm.valid || !_submitEnabled"
+          class="btn btn-lg btn-primary btn-block">Add
+  </button>
+</form>
+
+<app-alerts></app-alerts>

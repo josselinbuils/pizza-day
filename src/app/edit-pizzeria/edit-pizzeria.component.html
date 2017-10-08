@@ -1,0 +1,87 @@
+<h2><i class="fa fa-cutlery" aria-hidden="true"></i>Edit a pizzeria</h2>
+
+<app-loading [display]="_loading"></app-loading>
+
+<tabset [hidden]="!_pizzeria">
+
+  <tab [heading]="'Info'">
+    <form *ngIf="_editInfoForm" [formGroup]="_editInfoForm" (submit)="_editInfo($event)">
+
+      <fieldset class="form-group">
+        <label for="name">Name</label>
+        <input type="text" formControlName="name" class="form-control text-capitalize" id="name">
+      </fieldset>
+
+      <fieldset class="form-group">
+        <label for="phone">
+          Phone
+          <i [tooltip]="_constants.HELP_PHONE" [tooltipAnimation]="false"
+             class="fa fa-question-circle label-help"></i>
+        </label>
+        <input type="tel" formControlName="phone" class="form-control" id="phone">
+      </fieldset>
+
+      <fieldset class="form-group">
+        <label for="address">Address</label>
+        <textarea type="text" formControlName="address" class="form-control" id="address"></textarea>
+      </fieldset>
+
+      <button type="submit" [disabled]="!_editInfoForm.valid || !_editInfoSubmitEnabled"
+              class="btn btn-lg btn-primary btn-block">Save
+      </button>
+    </form>
+  </tab>
+
+  <tab [heading]="'Pizzas'" [active]="_params['showPizzasTab'] === true">
+    <form *ngIf="_pizzeria" [formGroup]="_editPizzasForm" (submit)="_editPizzas($event)" class="pizza-form">
+
+      <table *ngIf="_editPizzasForm.length > 0" class="table">
+        <thead class="bg-primary">
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Price (€)</th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let fromGroup of _editPizzasForm; let i = index">
+          <td scope="row">
+            <input *ngIf="fromGroup.controls._id" [formControl]="fromGroup.controls._id" type="hidden" />
+            <input [formControl]="fromGroup.controls.name" type="text" class="form-control"
+                   placeholder="Click to edit">
+          </td>
+          <td>
+            <input [formControl]="fromGroup.controls.description" type="text" class="form-control"
+                   placeholder="Click to edit">
+          </td>
+          <td>
+            <input [formControl]="fromGroup.controls.price" type="number" step="0.05" min="0"
+                   class="form-control">
+          </td>
+          <td>
+            <a (click)="_deletePizza(i, $event)" href="">
+              <i class="fa fa-trash" aria-hidden="true"></i>
+              <span class="sr-only">Delete the pizza</span>
+            </a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+      <button (click)="_addPizza($event)" class="btn btn-lg btn-primary btn-block">Add a pizza</button>
+
+      <button type="submit" [disabled]="!_editPizzasForm.valid || !_editPizzasSubmitEnabled"
+              class="btn btn-lg btn-primary btn-block">Save
+      </button>
+    </form>
+  </tab>
+
+  <tab [heading]="'Delete'">
+    <button [disabled]="!_deletePizzeriaSubmitEnabled" (click)="_deletePizzeria()"
+            class="btn btn-lg btn-danger btn-block">Delete pizzeria
+    </button>
+  </tab>
+</tabset>
+
+<app-alerts></app-alerts>

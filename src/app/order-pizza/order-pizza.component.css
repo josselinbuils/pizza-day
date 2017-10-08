@@ -1,0 +1,25 @@
+alerts, fieldset {
+  max-width: 22rem;
+  margin: 1.25rem auto 0 auto;
+}
+
+button {
+  font-size: 1.125rem;
+  max-width: 22rem;
+  margin: 1.25rem auto 0 auto;
+}
+
+td {
+  padding: 0;
+}
+
+td > label {
+  padding: .75rem;
+  display: block;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+th:first-child {
+  width: 3rem;
+}

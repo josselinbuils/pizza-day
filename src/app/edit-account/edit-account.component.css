@@ -1,0 +1,18 @@
+app-alerts {
+  max-width: 22rem;
+  margin: 1.25rem auto 0 auto;
+}
+
+button {
+  font-size: 1.125rem;
+  margin-top: 1.25rem;
+}
+
+form, tab > button {
+  max-width: 22rem;
+  margin: 1.55rem auto 0.625rem auto;
+}
+
+tabset {
+  max-width: 22rem;
+}

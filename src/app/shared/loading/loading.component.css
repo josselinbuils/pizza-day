@@ -1,0 +1,32 @@
+.hourglass {
+  display: block;
+  background: #f7f7f9;
+  margin: 1.875rem auto 0 auto;
+  width: 1.5rem;
+  height: 2.5rem;
+  box-shadow: inset #f7f7f9 0 0 0 0, inset #0275d8 0 1.25rem 0 0, inset #f7f7f9 0 0 2.5rem 0;
+  animation: hourglass 1s linear infinite;
+}
+
+.outer {
+  fill: #0275d8;
+}
+
+.middle {
+  fill: #f7f7f9;
+}
+
+@keyframes hourglass {
+  0% {
+    transform: rotate(0deg);
+    box-shadow: inset #f7f7f9 0 0 0 0, inset #0275d8 0 1.25rem 0 0, inset #f7f7f9 0 2.5rem 0 0, inset #0275d8 0 2.5rem 0 0;
+  }
+  80% {
+    transform: rotate(0deg);
+    box-shadow: inset #f7f7f9 0 1.25rem 0 0, inset #0275d8 0 1.25rem 0 0, inset #f7f7f9 0 1.25rem 0 0, inset #0275d8 0 2.5rem 0 0;
+  }
+  100% {
+    transform: rotate(180deg);
+    box-shadow: inset #f7f7f9 0 1.25rem 0 0, inset #0275d8 0 1.25rem 0 0, inset #f7f7f9 0 1.25rem 0 0, inset #0275d8 0 2.5rem 0 0;
+  }
+}
