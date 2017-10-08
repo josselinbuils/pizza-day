@@ -4,7 +4,8 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "mongod --smallfiles --dbpath /data/db & sleep 2 && node index",
+    "start-dev": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
