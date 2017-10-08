@@ -5,8 +5,8 @@
   "mail": {
     "service": "Gmail",
     "auth": {
-      "user": "pizzaday.party@gmail.com",
-      "pass": "Boxster987L"
+      "user": "example@gmail.com",
+      "pass": "password"
     }
   }
 }
