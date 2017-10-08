@@ -1,24 +1,23 @@
-:host {
-  display: block;
-  margin-top: 25px;
-}
-
-.bg-faded {
-  background-color: #f7f7f7;
-}
-
 .body {
+  border: 1px solid #e0e0e0;
+  border-bottom-left-radius: .25rem;
+  border-bottom-right-radius: .25rem;
+  padding: 0 2.5rem 2rem 2.5rem;
+  background-color: #f7f7f7;
   display: flow-root;
-  border-bottom-left-radius: .5rem;
-  border-bottom-right-radius: .5rem;
-  padding: 0 2rem 2rem 2rem;
+}
+
+.container {
+  width: 50rem;
+  margin: 1.875rem auto;
 }
 
 .logo {
-  margin-right: 0.6rem;
+  margin-right: .625rem;
+  display: inline;
 }
 
 .navbar {
-  border-top-left-radius: .5rem;
-  border-top-right-radius: .5rem;
+  border-top-left-radius: .25rem;
+  border-top-right-radius: .25rem;
 }
