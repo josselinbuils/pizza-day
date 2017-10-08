@@ -58,11 +58,6 @@ export class DataService {
         options.body = data;
       }
 
-      // TODO: remove this
-      if (url.indexOf('http') === -1) {
-        url = 'http://localhost:9000' + url;
-      }
-
       this._http.request(method, url, <any> options)
       // TODO update this
       // .timeout(REQUEST_TIMEOUT, new Error(ERROR_TIMEOUT))
