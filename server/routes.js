@@ -19,6 +19,7 @@ module.exports = class Routes {
 
     const router = express.Router();
     const root = process.cwd();
+    const clientPath = root + '/dist';
 
     Logger.info('Configure router middlewares');
 
@@ -28,7 +29,7 @@ module.exports = class Routes {
     });
 
     app.use(helmet());
-    app.use(process.env.HTTP_PREFIX || '/', serveStatic('dist'));
+    app.use(process.env.HTTP_PREFIX || '/', serveStatic(clientPath));
     app.use(contentLength.validateMax({max: 9999}));
     app.use(bodyParser.json());
 
