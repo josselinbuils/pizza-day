@@ -23,7 +23,7 @@
     <td [innerHTML]="_formatPhone(pizzeria.phone)" class="text-nowrap"></td>
     <td [innerHTML]="pizzeria.address"></td>
     <td class="actions">
-      <a *ngIf="_canEdit()" [routerLink]="['EditPizzeria', {id: pizzeria._id}]">
+      <a *ngIf="_canEdit()" [routerLink]="['editPizzeria', pizzeria._id]">
         <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
         <span class="sr-only">Edit the pizzeria</span>
       </a>

@@ -30,7 +30,7 @@ export class UserPanelComponent {
   }, {
     name: 'Edit account',
     icon: 'fa-user',
-    click: () => this._router.navigate(['editAccount', {id: this._userService.getId()}]),
+    click: () => this._router.navigate(['editAccount', this._userService.getId()]),
     hidden: () => !this._isLogged() || this._isRouteActive('/editAccount/' + this._userService.getId())
   }, {
     name: 'About',
