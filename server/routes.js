@@ -28,7 +28,7 @@ module.exports = class Routes {
     });
 
     app.use(helmet());
-    app.use(process.env.HTTP_PREFIX || '/', serveStatic(clientPath));
+    app.use(process.env.HTTP_PREFIX || '/', express.static(clientPath));
     app.use(contentLength.validateMax({max: 9999}));
     app.use(bodyParser.json());
 
