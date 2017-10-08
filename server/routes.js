@@ -1,5 +1,3 @@
-'use strict';
-
 const bodyParser = require('body-parser');
 const contentLength = require('express-content-length-validator');
 const express = require('express');
@@ -15,12 +13,12 @@ const PizzeriaRoutes = require('./api/pizzeria/pizzeria.routes');
 const UserRoutes = require('./api/user/user.routes');
 
 module.exports = class Routes {
-  static init(app, env) {
+  static init(app) {
     Logger.info('Initialize routes');
 
-    let router = express.Router(),
-      root = process.cwd(),
-      clientPath = root + '/dist/' + (env === 'production' ? 'prod' : 'dev');
+    const router = express.Router();
+    const root = process.cwd();
+    const clientPath = root + '/dist';
 
     Logger.info('Configure router middlewares');
 
@@ -30,12 +28,6 @@ module.exports = class Routes {
     });
 
     app.use(helmet());
-
-    if (env === 'development') {
-      app.use('/node_modules', express.static(root + '/node_modules'));
-      app.use('/dist/dev', express.static(root + '/dist/dev'));
-    }
-
     app.use(express.static(clientPath));
     app.use(contentLength.validateMax({max: 9999}));
     app.use(bodyParser.json());
