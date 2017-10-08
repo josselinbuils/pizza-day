@@ -43,8 +43,8 @@ const appRoutes: Routes = [
   {path: 'editPizzeria/:id', component: EditPizzeriaComponent},
   {path: 'login', component: LoginComponent},
   {path: 'orderPizza/:pizzaDayId/:orderId', component: OrderPizzaComponent},
-  {path: 'pizzerias', component: PizzeriaListComponent},
-  {path: '**', redirectTo: '/notFound'}
+  {path: 'pizzerias', component: PizzeriaListComponent}
+  // {path: '**', redirectTo: '/notFound'}
 ];
 
 @NgModule({
