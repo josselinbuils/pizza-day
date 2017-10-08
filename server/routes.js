@@ -2,6 +2,7 @@ const bodyParser = require('body-parser');
 const contentLength = require('express-content-length-validator');
 const express = require('express');
 const helmet = require('helmet');
+const serveStatic = require('serve-static');
 
 const AuthRoutes = require('./auth/auth.routes');
 const constants = require('./constants.json');
@@ -18,7 +19,6 @@ module.exports = class Routes {
 
     const router = express.Router();
     const root = process.cwd();
-    const clientPath = root + '/dist';
 
     Logger.info('Configure router middlewares');
 
@@ -28,7 +28,7 @@ module.exports = class Routes {
     });
 
     app.use(helmet());
-    app.use(process.env.HTTP_PREFIX || '/', express.static(clientPath));
+    app.use(process.env.HTTP_PREFIX || '/', serveStatic('dist'));
     app.use(contentLength.validateMax({max: 9999}));
     app.use(bodyParser.json());
 
